@@ -6,12 +6,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
 @Entity
 @Table(name = "users")
 @Data
+@SuperBuilder
+@NoArgsConstructor
 public class User extends BaseEntity {
 
     private String email;
