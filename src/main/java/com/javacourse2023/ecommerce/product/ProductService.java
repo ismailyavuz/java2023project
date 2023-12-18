@@ -1,6 +1,7 @@
 package com.javacourse2023.ecommerce.product;
 
 import com.javacourse2023.ecommerce.entities.Product;
+import com.javacourse2023.ecommerce.exception.ECommerceException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,8 @@ public class ProductService {
         return repository.findAll();
     }
 
-    public Optional<Product> findById(Long id) {
-        return repository.findById(id);
+    public Product findById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new ECommerceException(""));
     }
 
     public Product save(Product product){
